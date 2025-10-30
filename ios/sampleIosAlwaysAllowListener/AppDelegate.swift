@@ -2,7 +2,9 @@ import UIKit
 import React
 import React_RCTAppDelegate
 import ReactAppDependencyProvider
-
+import CoreData
+import CoreLocation
+import Roam
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
   var window: UIWindow?
@@ -17,7 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let delegate = ReactNativeDelegate()
     let factory = RCTReactNativeFactory(delegate: delegate)
     delegate.dependencyProvider = RCTAppDependencyProvider()
-
+Roam.setLoggerEnabled(logger: true)
+            print("Initializing Roam SDK...")
+          Roam.initialize("701ca389-e233-4f46-a931-d68fd22e9618")
+          print("Roam SDK initialization called")
     reactNativeDelegate = delegate
     reactNativeFactory = factory
 
